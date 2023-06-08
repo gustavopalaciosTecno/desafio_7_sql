@@ -52,23 +52,26 @@ SELECT estado FROM articulo;
 DELETE FROM articulo WHERE id = 3;
 
 
--- DELETE FROM articulo WHERE estado = FALSE;
 SET SQL_SAFE_UPDATES = 0;
+
+-- Eliminar un artículo
 
 DELETE FROM articulo WHERE estado = 0;
 SELECT * FROM articulo;
+
+--Insertar comentarios
 
 INSERT INTO comentario (codart, id_usuario, contenido, fecha_hora, estado) VALUES (1, 1, "pedro is the best", "2023-02-01", 1);
 
 INSERT INTO comentario (codart, id_usuario, contenido, fecha_hora, estado) VALUES (2, 1, "pedro is the best", "2023-02-01", 1);
 
--- Agregar el comando necesario para listar todos los artículos que tengan comentarios, 
--- mostrando el título del artículo, la fecha_publicacion del artículo, 
--- el nombre del usuario que realizo el comentario y la fecha_hora que realizó dicho comentario, 
--- agrupados por artículos.
 
--- SELECT titulo FROM articulo  INNER JOIN comentario  ON titulo = comentario GROUP BY articulo;
--- SELECT titulo.art, fecha_publicacion.art, nombre.u FROM articulo as art INNER JOIN usuario as u ON id_articulo.art = id.u;
+/*
+Agregar el comando necesario para listar todos los artículos que tengan comentarios, 
+mostrando el título del artículo, la fecha_publicacion del artículo, 
+el nombre del usuario que realizo el comentario y la fecha_hora que realizó dicho comentario, 
+agrupados por artículos.
+*/
 
 SELECT a.titulo, a.fecha_publicacion, u.nombre AS nombre_usuario
 FROM articulo AS a
